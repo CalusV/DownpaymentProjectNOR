@@ -43,10 +43,12 @@
                 <td>{{ laan.saldoDato }}</td>
                 <td>{{ laan.datoForsteInnbetaling }}</td>
             </tr>
+                </table>
             {% else %}
+                </table>
                 <p>Ingen lån funnet.</p>
             {% endif %}
-        </table>
+
 
         <h3>Nedbetalingstabell</h3>
         <table class="table">
@@ -69,10 +71,12 @@
                         <td>{{ betaling.total }} Kr</td>
                     </tr>
                 {% endfor %}
+                </table>
             {% else %}
+                </table>
                 <p>Ingen innbetalinger funnet.</p>
             {% endif %}
-        </table>
+
     </div>
 
     <!-- Bot -->

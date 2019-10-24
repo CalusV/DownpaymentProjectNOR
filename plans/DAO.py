@@ -4,6 +4,13 @@ import math
 ## DAO.py brukes til å kommunisere med databasen. Ved å ha all databasekommunikasjon på ett sted får vi
 ## løs kopling mot eventuelle endringer i databasestrukturen.
 
+#Se etter lån i databasen
+def finn_laan():
+    if Laan.objects.last():
+        return True
+    else:
+        return False
+
 #Hent siste lån fra Lånedatabasen
 def hent_siste_laan():
     return Laan.objects.last()

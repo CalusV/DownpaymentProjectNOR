@@ -27,7 +27,7 @@ def oversikt(request):
             'innbetalinger': innbetalinger
         }
         return render(request, 'plans/oversikt.html', context)
-    else:
+    elif DAO.finn_laan() == True:
         params = apitilgang.bygg_payload(latest_laan)
         nedbetalingsplan = apitilgang.hent_respons(params)
         innbetalingsliste = nedbetalingsplan['nedbetalingsplan']['innbetalinger']
@@ -40,3 +40,5 @@ def oversikt(request):
             'innbetalinger' : innbetalinger
         }
         return render(request, 'plans/oversikt.html', context)
+    else:
+        return render(request, 'plans/oversikt.html')
