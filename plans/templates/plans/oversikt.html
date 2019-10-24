@@ -34,6 +34,7 @@
                 <th scope="col">Saldodato</th>
                 <th scope="col">Dato for første innbetaling:</th>
             </tr>
+            {% if laan %}
             <tr>
                 <td>{{ laan.laanebelop }} Kr</td>
                 <td>{{ laan.nominellRente }} %</td>
@@ -42,6 +43,9 @@
                 <td>{{ laan.saldoDato }}</td>
                 <td>{{ laan.datoForsteInnbetaling }}</td>
             </tr>
+            {% else %}
+                <p>Ingen lån funnet.</p>
+            {% endif %}
         </table>
 
         <h3>Nedbetalingstabell</h3>
@@ -69,7 +73,6 @@
                 <p>Ingen innbetalinger funnet.</p>
             {% endif %}
         </table>
-        <h3>Nedbetalingsgraf</h3>
     </div>
 
     <!-- Bot -->
