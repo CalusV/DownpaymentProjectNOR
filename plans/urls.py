@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
 
-#This is where we teach Django what the paths of our website will be
+# urls.py brukes til å fortelle Django hvor vi vil dirigere trafikk dersom brukere besøker forskjellige URL
+
 urlpatterns = [
     #path(directory, view location, name value)
     path('', views.index, name='index'),

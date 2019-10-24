@@ -1,6 +1,9 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User
 from .models import Laan
+
+## forms.py lager skjemaet vi benytter oss av når brukeren skal skrive inn sin lånedata.
 
 class Laaneskjema(ModelForm):
     class Meta:
@@ -10,13 +13,7 @@ class Laaneskjema(ModelForm):
             'laanebelop': _('Lånebeløp'),
             'nominellRente': _('Nominell Rente'),
             'terminGebyr': _('Gebyr'),
-            'utlopsDato': _('Utløpsdato'),
-            'saldoDato': _('Saldodato'),
-            'datoForsteInnbetaling': _('Første innbetalingsdato')
+            'utlopsDato': _('Utløpsdato (YYYY-MM-DD)'),
+            'saldoDato': _('Saldodato (YYYY-MM-DD)'),
+            'datoForsteInnbetaling': _('Første innbetalingsdato (YYYY-MM-DD)')
         }
-
-        def sjekk_belop(self):
-            data = self.cleaned_data['laanebelop']
-            if data < 0:
-                raise ModelForm.ValidationError("Lånemengde kan ikke være mindre enn null.")
-            return data

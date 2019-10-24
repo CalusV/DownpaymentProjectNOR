@@ -18,3 +18,4 @@ Bootstrap is also used to prettify things.
 * API independence through writing our own algorithms
 * Graph display of interest versus loan downpayment ratios
 * Let user choose between consistent loan downpayment sum or determined loan end date
+* Let the user track multiple loans and their downpayment plans

@@ -1,6 +1,8 @@
 from .models import Laan
 import requests
 
+## apitilgang.py brukes i hovedsak av views.py for å forberede data til de forksjellige sidene
+
 ##Her bruker vi dataen vi har lagret fra brukerskjemaet til å bygge en payload til APIet
 def bygg_payload(laan):
     payload = {

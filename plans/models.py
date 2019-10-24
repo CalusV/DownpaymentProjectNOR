@@ -1,5 +1,7 @@
 from django.db import models
 
+## models.py modellerer databasefeltene våre.
+
 # Create your models here.
 class Laan(models.Model):
     laanebelop = models.FloatField(default=0)
@@ -10,7 +12,7 @@ class Laan(models.Model):
     datoForsteInnbetaling = models.DateField()
 
     def __str__(self):
-        return "Lån" + str(self.id)
+        return "Lån " + str(self.id)
 
 class Innbetaling(models.Model):
     laan = models.ForeignKey(Laan, on_delete=models.CASCADE)
@@ -22,4 +24,4 @@ class Innbetaling(models.Model):
     total = models.FloatField(default=0)
 
     def __str__(self):
-        return "Innbetaling" + str(id)
+        return "Innbetaling " + str(self.id)

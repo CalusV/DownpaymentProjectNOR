@@ -1,6 +1,9 @@
 from .models import Laan, Innbetaling
 import math
 
+## DAO.py brukes til å kommunisere med databasen. Ved å ha all databasekommunikasjon på ett sted får vi
+## løs kopling mot eventuelle endringer i databasestrukturen.
+
 #Hent siste lån fra Lånedatabasen
 def hent_siste_laan():
     return Laan.objects.last()

@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import Laaneskjema
 from . import apitilgang, DAO
 
+## views.py er filen som forbereder og pakker data til presentasjon i HTML.
+
 # Index-siden er forsiden vår. Her vil vi presenter Låneskjemaet vi genererer API-payload fra
 def index(request):
     if request.method == 'POST':
