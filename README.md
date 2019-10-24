@@ -7,8 +7,8 @@ Bootstrap is also used to prettify things.
 
 ## How to run this project
 1. Install python ([Download Python](https://www.python.org/downloads/)) *Only required if not already installed*
-2. Install django (typing 'python -m pip install django' will download the package) *Django is the web server environment*
-3. Install requests (typing 'python -m pip install django' will download the package) *requests is our API connection package*
+2. Install django ('python -m pip install django' in terminal) *Django is the web server environment*
+3. Install requests ('python -m pip install django' in terminal) *requests is our API connection package*
 4. Navigate to your folder with manage.py in a terminal
 5. Run the server (type 'python manage.py runserver' to run test server environment)
 6. Navigate to the URL in your web browser (127.0.0.1:8000)
