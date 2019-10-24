@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Nedbetalingsplan</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" type="text/css" href="{' %}"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Top -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class=""collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'index' %}">Låneskjema</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'oversikt' %}">Oversikt<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Mid -->
+    <div class="container">
+        <h3>Lån</h3>
+        <table class="table">
+            <tr>
+                <th scope="col">Beløp</th>
+                <th scope="col">Rente</th>
+                <th scope="col">Termingebyr</th>
+                <th scope="col">Utløpsdato</th>
+                <th scope="col">Saldodato</th>
+                <th scope="col">Dato for første innbetaling:</th>
+            </tr>
+            <tr>
+                <td>{{ laan.laanebelop }} Kr</td>
+                <td>{{ laan.nominellRente }} %</td>
+                <td>{{ laan.terminGebyr }} Kr</td>
+                <td>{{ laan.utlopsDato }}</td>
+                <td>{{ laan.saldoDato }}</td>
+                <td>{{ laan.datoForsteInnbetaling }}</td>
+            </tr>
+        </table>
+
+        <h3>Nedbetalingstabell</h3>
+        <table class="table">
+            <tr>
+                <th scope="col">Dato</th>
+                <th scope="col">Restgjeld</th>
+                <th scope="col">Gjeldsbetaling</th>
+                <th scope="col">Gebyrbetaling</th>
+                <th scope="col">Rentebetaling</th>
+                <th scope="col">Total utgift</th>
+            </tr>
+            {% if innbetalinger %}
+                {% for betaling in innbetalinger %}
+                    <tr>
+                        <td>{{ betaling.dato }}</td>
+                        <td>{{ betaling.restgjeld }} Kr</td>
+                        <td>{{ betaling.gjeldsbetaling }} Kr</td>
+                        <td>{{ betaling.gebyr }} Kr</td>
+                        <td>{{ betaling.renter }} Kr</td>
+                        <td>{{ betaling.total }} Kr</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <p>Ingen innbetalinger funnet.</p>
+            {% endif %}
+        </table>
+        <h3>Nedbetalingsgraf</h3>
+    </div>
+
+    <!-- Bot -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
